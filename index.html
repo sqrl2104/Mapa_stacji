@@ -56,6 +56,7 @@
     text-decoration: none; margin-top: 4px;
   }
   .nav-btn:hover { background: #1F3864; }
+  a.nav-btn { color: white; }
 
 
   #btn-locate {
@@ -245,7 +246,7 @@ STACJE.forEach(s => {
             </div>
           </div>
           <a class="nav-btn" href="${navUrl}" target="_blank">🧭 Nawiguj (Google Maps)</a>
-          <button class="nav-btn" style="margin-top:6px;background:#4CAF50;" onclick="nawigujDoStacji(${s.lat},${s.lon})">🗺️ Trasa na tej mapie</button>
+          <button class="nav-btn" style="margin-top:6px;background:#4CAF50;" onclick="nawigujDoStacji(${s.lat},${s.lon})">🗺️ Nawiguj na tej mapie</button>
         </div>
     `);
 
