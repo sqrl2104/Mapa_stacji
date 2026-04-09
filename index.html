@@ -6,6 +6,7 @@
 <title>Ceny Paliwa — 2026-04-09</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-rotate@0.2.8/dist/leaflet-rotate-src.js"></script>
 <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"/>
 <style>
@@ -140,7 +141,14 @@ const aktywne = new Set(["AS24","OMV","MOEVE","ORLEN","ZNIZKA"]);
 let markery = [];
 let userMarker = null;
 let routingControl = null;
-const map = L.map('map').setView([48.5, 14.0], 5);
+const map = L.map('map', {
+    rotate: true,
+    touchRotate: true,
+    rotateControl: {
+        closeOnZeroBearing: true
+    },
+    bearing: 0
+}).setView([48.5, 14.0], 5);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
