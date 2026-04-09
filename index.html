@@ -35,9 +35,6 @@
   #map-wrap { flex: 1; position: relative; }
   #map { height: 100%; width: 100%; }
   .leaflet-routing-container { display: none !important; }
-  path.leaflet-interactive[stroke-opacity="0.15"], path.leaflet-interactive[stroke-opacity="0.6"] {
-    pointer-events: none !important;
-  }
   .info-box {
     background: white; border-radius: 8px; padding: 12px; min-width: 200px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: 14px; line-height: 1.6;
@@ -434,6 +431,14 @@ function toggleTracking() {
         });
     }
 }
+map.on('click', function(e) {
+    if (routingControl) {
+        const dominated_waypoints = routingControl.getWaypoints();
+        if (dominated_waypoints.length > 2) {
+            routingControl.spliceWaypoints(1, dominated_waypoints.length - 2);
+        }
+    }
+});
 </script>
 
 
