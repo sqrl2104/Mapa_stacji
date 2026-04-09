@@ -31,7 +31,8 @@
   .filter-btn[data-d="MOEVE"].active { background: #FF9800; }
   .filter-btn[data-d="ORLEN"].active { background: #4CAF50; }
   .filter-btn[data-d="ZNIZKA"].active { background: #FFC107; color: #333; }
-  #map { flex: 1; }
+  #map-wrap { flex: 1; position: relative; }
+  #map { height: 100%; width: 100%; }
   .info-box {
     background: white; border-radius: 8px; padding: 12px; min-width: 200px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: 14px; line-height: 1.6;
@@ -104,14 +105,15 @@
   <button class="filter-btn active" data-d="ORLEN">ORLEN</button>
   <button class="filter-btn active" data-d="ZNIZKA">⭐ Zniżki</button>
 </div>
+<div id="map-wrap">
 <div id="map"></div>
-
 <div id="top-controls">
   <button id="btn-locate" onclick="lokalizujMnie()">📍 Moja lokalizacja</button>
   <div id="search-box">
     <input id="dest-input" type="text" placeholder="Wpisz adres docelowy..." />
     <button id="btn-route" onclick="szukajAdresu()">🧭 Nawiguj</button>
   </div>
+</div>
 </div>
 
 <script>
