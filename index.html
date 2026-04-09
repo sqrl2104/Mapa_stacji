@@ -61,11 +61,7 @@
   }
   .leg-item { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
   .leg-dot { width: 12px; height: 12px; border-radius: 50%; }
-  #top-controls {
-    position: absolute; top: 10px; right: 10px; z-index: 1000;
-    display: flex; flex-direction: column; gap: 6px; align-items: flex-end;
-    max-width: calc(100% - 20px);
-  }
+
   #btn-locate {
     background: white; border: 2px solid #ccc; border-radius: 8px;
     padding: 8px 12px; cursor: pointer; font-size: 14px;
@@ -73,17 +69,22 @@
   }
   #btn-locate:hover { background: #f0f0f0; }
   #search-box {
-    display: flex; gap: 4px;
+    display: flex; gap: 0;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2); border-radius: 8px; overflow: hidden;
+    max-width: 100%;
   }
   #dest-input {
     padding: 8px 10px; border: 2px solid #ccc; border-right: none;
-    border-radius: 8px 0 0 8px; font-size: 13px; width: 220px; min-width: 0; outline: none;
+    border-radius: 8px 0 0 8px; font-size: 13px; flex: 1; min-width: 80px; outline: none;
   }
-  @media (max-width: 500px) {
-    #dest-input { width: 140px; }
-    #top-controls { top: 6px; right: 6px; }
-    #btn-locate { font-size: 12px; padding: 6px 8px; }
+  #top-controls {
+    position: absolute; top: 10px; right: 10px; z-index: 1000;
+    display: flex; flex-direction: column; gap: 6px; align-items: flex-end;
+    max-width: calc(100vw - 20px); width: 280px;
+  }
+  @media (max-width: 400px) {
+    #top-controls { width: calc(100vw - 20px); }
+    #btn-route { font-size: 11px; padding: 8px 8px; }
   }
   #btn-route {
     padding: 8px 12px; background: #2E75B6; color: white; border: none;
